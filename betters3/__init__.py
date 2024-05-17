@@ -4,7 +4,7 @@ from boto3 import client as boto_client
 import sys
 import os
 
-__version__ = "1.8"
+__version__ = "0.0.4"
 
 class BetterS3():
   __multipart_chunksize   = 8   * MB
