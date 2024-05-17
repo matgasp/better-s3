@@ -25,7 +25,7 @@ jobs:
           
       - name: Extracting Tag name...
         id: tag
-        run: echo "TAG_NAME=$(echo $GITHUB_REF | cut -d / -f 3)"
+        run: echo "TAG_NAME=$(echo $GITHUB_REF | cut -d / -f 3)" >> $GITHUB_OUTPUT
       
       - name: Updating the version in setup.py...
         run: >-
