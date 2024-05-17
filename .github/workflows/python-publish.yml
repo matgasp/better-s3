@@ -25,7 +25,7 @@ jobs:
           
       - name: Extracting Tag name...
         id: tag
-        run: echo ::set-output name=TAG_NAME::$(echo $GITHUB_REF | cut -d / -f 3)
+        run: echo "TAG_NAME=$(echo $GITHUB_REF | cut -d / -f 3)"
       
       - name: Updating the version in setup.py...
         run: >-
@@ -36,7 +36,7 @@ jobs:
           python setup.py sdist bdist_wheel
           
       - name: Publishing to PyPI...
-        uses: pypa/gh-action-pypi-publish@master
+        uses: pypa/gh-action-pypi-publish@release/v1
         with:
           password: ${{ secrets.PYPI_API_TOKEN }}
     
